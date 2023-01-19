@@ -24,3 +24,6 @@ except:
 
 else:
     print("it's a miracle, no errors")
+
+finally:
+    print("Function complete")

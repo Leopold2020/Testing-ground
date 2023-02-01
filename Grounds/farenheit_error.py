@@ -23,10 +23,10 @@ if __name__ == "__main__":
         new_degree = fahrenheit_to_celsius(degree)
         
     except ValueError:
-        print("use numbers, not words")
+        print("use only numbers, not words")
 
     except FahrenheitError as e:
         print(e)
 
     else: 
-        print("In celsius ", new_degree)
+        print(f"{degree} Fahrenheit is {new_degree:.2f} celsius")

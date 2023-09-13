@@ -1,0 +1,9 @@
+{
+    "name": "test",
+    "nickname": "test2",
+    "values": [
+        23,
+        24
+    ],
+    "current_value": 23
+}

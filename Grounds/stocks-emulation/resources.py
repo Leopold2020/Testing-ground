@@ -13,21 +13,23 @@ class Stock():
         self.current_value = current_value
         
     def __str__(self):
-        return f"{self.name} ({self.nickname}) - {self.current_value} kr"
+        return f"{self.name} ({self.nickname}) - {self.current_value} kr - values: {self.values}"
     
-    def append_value(self, value):
-        self.values.append(value)
+    # def append_value(self, value):
+    #     self.values.append(value)
         
     def update_value(self, value):
-        self.current_value = value
+        self.current_value *= value
+        self.values.append(self.current_value)
+        
         
     def save(self):
-        data = {"name":f"{self.name}", "nickname":f"{self.nickname}", "values":f"{self.values}", "current_value":0}
+        data = {"name":f"{self.name}", "nickname":f"{self.nickname}", "values":f"{self.values}", "current_value":f"{self.current_value}"}
 
-        with open('Grounds/stock-emulation/data.json', 'w', encoding='utf-8') as f:
+        with open('Grounds/stocks-emulation/data.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
             
 def load_data():
-    with open('Grounds/stock-emulation/data.json') as json_file:
+    with open('Grounds/stocks-emulation/data.json') as json_file:
         read_data = json.load(json_file)
         return read_data["name"], read_data["nickname"], read_data["values"], read_data["current_value"]
